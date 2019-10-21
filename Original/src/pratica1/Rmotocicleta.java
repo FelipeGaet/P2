@@ -11,8 +11,8 @@ public class Rmotocicleta {
     public Rmotocicleta(){
         Motocicletas = new ArrayList<>();
         }
-    public void AgregarMotocicleta(int Id, String Marca, String Matricula, int coste){
-        Motocicleta nuevo = new Motocicleta(Id,Marca,Matricula,coste);
+    public void AgregarMotocicleta(int Id, String Marca, String Matricula, int coste, int imp){
+        Motocicleta nuevo = new Motocicleta(Id,Marca,Matricula,coste,imp);
         Motocicletas.add(nuevo);
         //OperacionArchivo.crearArchivo(Motocicletas);
 }
@@ -23,6 +23,7 @@ public class Rmotocicleta {
             System.out.println("Marca: "+Motocicletas.get(i).getMarca());
             System.out.println("Matricula: "+Motocicletas.get(i).getMatricula());
             System.out.println("Coste: "+Motocicletas.get(i).getCoste());
+            System.out.println("Importe: "+Motocicletas.get(i).getImp());
         }                    
 }
 }

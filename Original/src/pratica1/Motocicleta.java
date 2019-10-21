@@ -7,12 +7,14 @@ public class Motocicleta {
     private String Marca;
     private String Matricula;
     private int coste;
+    private int imp;
 
-    public Motocicleta(int Id,String Marca, String Matricula, int coste) {
+    public Motocicleta(int Id,String Marca, String Matricula, int coste , int imp) {
         this.Id = Id;
         this.Marca = Marca;
         this.Matricula = Matricula;
         this.coste = coste;
+        this.imp = imp;
     }
 
     public int getId() {
@@ -45,6 +47,14 @@ public class Motocicleta {
 
     public void setCoste(int coste) {
         this.coste = coste;
+    }
+
+    public int getImp() {
+        return imp;
+    }
+
+    public void setImp(int imp) {
+        this.imp = imp;
     }
     
     

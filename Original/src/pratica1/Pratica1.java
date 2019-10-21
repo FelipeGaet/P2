@@ -1,5 +1,4 @@
 
-
 package pratica1;
 
 import java.util.InputMismatchException;
@@ -15,22 +14,12 @@ public class Pratica1 {
     public static void main(String[] args) {
         
        Scanner sn = new Scanner(System.in);
-       boolean salir = false;
-       boolean salir2;
-       int opcion;
-       int resp1 = 0;
-       int opcion2;
-       int imp;
-       int resp;
-       int resp2;
-       int resp3;
+       boolean salir = false; boolean salir2;
+       int opcion;int resp1 = 0;int opcion2;int resp;int resp2;int resp3;int resp4 = 0; int resp5 = 0;
        String nom = "";
-       int cas1 = 3;
-       int cas2 = 2;
-       int cas3 = 2;
-       int cas4 = 2;
-       int cas5 = 2;
-       int cou = -1;
+       int cas1 = 3;int cas2 = 2;int cas3 = 2;int cas4 = 2;int cas5 = 2;
+       int cou = -1;int imp = 0;
+       
        Rmiembro nueva = new Rmiembro();
        Rmotocicleta nueva1 = new Rmotocicleta();
        Rcesion nueva2 = new Rcesion();
@@ -56,7 +45,8 @@ public class Pratica1 {
            + "4. Listar en pantalla los miembros con motos en posesión\n"
            + "5. Listar todas las motos\n"
            + "6. Mostrar las cesiones realizadas\n"
-           + "7. Salir del programa\n"); 
+           + "7. Incrementar otros gastos a una moto\n"
+           + "8. Salir del programa\n"); 
            
             
            try {
@@ -86,7 +76,7 @@ public class Pratica1 {
                    try {
  
                 System.out.print("Ingrese una de las opciones: "); opcion2 = sn.nextInt();
-          
+                
             switch(opcion2){
                 case 1:
                     int sec;
@@ -94,7 +84,17 @@ public class Pratica1 {
                     cas1 = cas1 - 1;
                     if ((cas1 == 2)){
                     
-                    nueva1.AgregarMotocicleta(0,"Vespa Primavera, de 125 CC","8276JSH",2500);
+                    do{
+                try {
+                     ban = 0;
+                     System.out.println("--------------------------------------------------------");
+                     System.out.print("Ingrese el importe: "); imp = sn.nextInt();
+                     
+                }catch(Exception e){
+           
+                     System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                }while(ban != 0);
+                    nueva1.AgregarMotocicleta(0,"Vespa Primavera, de 125 CC","8276JSH",2500,imp);
                     System.out.println("--------------------------------------------------------");
                     System.out.println("ASIGNE UN ID A LA MOTOCICLETA SELECCIONADA");
                     nueva.VisualizarMiembro();
@@ -117,7 +117,17 @@ public class Pratica1 {
                         break;
                     }
                     }else if (cas1 == 1){
-                    nueva1.AgregarMotocicleta(0,"Vespa Primavera, de 125 CC","8736JSG",2300);
+                        do{
+                try {
+                     ban = 0;
+                     System.out.println("--------------------------------------------------------");
+                     System.out.print("Ingrese el importe: "); imp = sn.nextInt();
+                     
+                }catch(Exception e){
+           
+                     System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                }while(ban != 0);
+                    nueva1.AgregarMotocicleta(0,"Vespa Primavera, de 125 CC","8736JSG",2300,imp);
                     System.out.println("--------------------------------------------------------");
                     System.out.println("ASIGNE UN ID A LA MOTOCICLETA SELECCIONADA");
                     nueva.VisualizarMiembro();
@@ -149,7 +159,17 @@ public class Pratica1 {
                     int sec22;
                     cas2 = cas2 - 1;
                     if (cas2 == 1){
-                    nueva1.AgregarMotocicleta(0,"Motobenae Poney AG2, de 70 CC","6374STW",2300);
+                        do{
+                try {
+                     ban = 0;
+                     System.out.println("--------------------------------------------------------");
+                     System.out.print("Ingrese el importe: "); imp = sn.nextInt();
+                     
+                }catch(Exception e){
+           
+                     System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                }while(ban != 0);
+                    nueva1.AgregarMotocicleta(0,"Motobenae Poney AG2, de 70 CC","6374STW",2300,imp);
                     System.out.println("--------------------------------------------------------");
                     System.out.println("ASIGNE UN ID A LA MOTOCICLETA SELECCIONADA");
                     nueva.VisualizarMiembro();
@@ -180,7 +200,17 @@ public class Pratica1 {
                     int sec33;
                     cas3 = cas3 - 1;
                     if (cas3 == 1){
-                    nueva1.AgregarMotocicleta(0,"Bultaco de 200 CC","6273ATF",3800);
+                        do{
+                try {
+                     ban = 0;
+                     System.out.println("--------------------------------------------------------");
+                     System.out.print("Ingrese el importe: "); imp = sn.nextInt();
+                     
+                }catch(Exception e){
+           
+                     System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                }while(ban != 0);
+                    nueva1.AgregarMotocicleta(0,"Bultaco de 200 CC","6273ATF",3800,imp);
                     System.out.println("--------------------------------------------------------");
                     System.out.println("ASIGNE UN ID A LA MOTOCICLETA SELECCIONADA");
                     nueva.VisualizarMiembro();
@@ -211,7 +241,17 @@ public class Pratica1 {
                     int sec44;
                     cas4 = cas4 - 1;
                     if (cas4 == 1){
-                    nueva1.AgregarMotocicleta(0,"Guzzi Cardelino 73, de 75 CC","8736QYH",1200);
+                        do{
+                try {
+                     ban = 0;
+                     System.out.println("--------------------------------------------------------");
+                     System.out.print("Ingrese el importe: "); imp = sn.nextInt();
+                     
+                }catch(Exception e){
+           
+                     System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                }while(ban != 0);
+                    nueva1.AgregarMotocicleta(0,"Guzzi Cardelino 73, de 75 CC","8736QYH",1200,imp);
                     System.out.println("--------------------------------------------------------");
                     System.out.println("ASIGNE UN ID A LA MOTOCICLETA SELECCIONADA");
                     nueva.VisualizarMiembro();
@@ -242,7 +282,17 @@ public class Pratica1 {
                     int sec55;
                     cas5 = cas5 - 1;
                     if (cas5 == 1){
-                    nueva1.AgregarMotocicleta(0,"Ducati mini de 49 CC","9813TCS",4000);
+                        do{
+                try {
+                     ban = 0;
+                     System.out.println("--------------------------------------------------------");
+                     System.out.print("Ingrese el importe: "); imp = sn.nextInt();
+                     
+                }catch(Exception e){
+           
+                     System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                }while(ban != 0);
+                    nueva1.AgregarMotocicleta(0,"Ducati mini de 49 CC","9813TCS",4000,imp);
                     System.out.println("--------------------------------------------------------");
                     System.out.println("ASIGNE UN ID A LA MOTOCICLETA SELECCIONADA");
                     nueva.VisualizarMiembro();
@@ -375,6 +425,8 @@ public class Pratica1 {
                           System.out.println("ID: "+nueva1.Motocicletas.get(x).getId());
                           System.out.println("Motocicleta: "+nueva1.Motocicletas.get(x).getMarca());
                           System.out.println("Matrícula: "+nueva1.Motocicletas.get(x).getMatricula());
+                          System.out.println("Coste: "+nueva1.Motocicletas.get(x).getCoste());
+                          System.out.println("Importe: "+nueva1.Motocicletas.get(x).getImp());
                           
                           for(int i=0;i< mi4 ;i++) {
                         int re = nueva.Miembros.get(i).getId(); 
@@ -389,6 +441,42 @@ public class Pratica1 {
                    nueva2.VisualizarCesion();
                    break;
                 case 7:
+                int mi7 = nueva1.Motocicletas.size();;
+                int im;
+                          System.out.println("--------------------------------------------------------");
+                          System.out.println("SELECCIONE UNA MOTOCICLETA PARA INCREMENTAR IMPORTE:");
+                    for(int i=0;i< mi7 ;i++) {
+                              
+                          System.out.println("------------------------");
+                          System.out.println(i+")");
+                          System.out.println("Motocicleta: "+nueva1.Motocicletas.get(i).getMarca()+" "+"(Coste: "+nueva1.Motocicletas.get(i).getCoste()+"€)"+" "+"(Importe: "+nueva1.Motocicletas.get(i).getImp()+"€)" );
+                          }
+                    
+                          do{
+                    try {
+                     ban = 0;
+                          System.out.println("------------------------");
+                          System.out.print("Ingrese el número de la motocicleta: "); resp4 = sn.nextInt();
+                     
+                    }catch(Exception e){
+           
+                          System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                    }while(ban != 0);
+                          
+                          do{
+                          try {
+                     ban = 0;
+                          System.out.println("------------------------");
+                          System.out.print("Ingrese importe a sumar: "); resp5 = sn.nextInt();
+                     
+                    }catch(Exception e){
+           
+                          System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                    }while(ban != 0);
+                          im = nueva1.Motocicletas.get(resp4).getImp();
+                          nueva1.Motocicletas.get(resp4).setImp(im + resp5);
+                break;
+                case 8:
                    
                    salir=true;
                    break;
