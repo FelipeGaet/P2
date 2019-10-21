@@ -1,6 +1,7 @@
 
 package pratica1;
 
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,11 +19,12 @@ public class Pratica1 {
        int opcion;int resp1 = 0;int opcion2;int resp;int resp2;int resp3;int resp4 = 0; int resp5 = 0;
        String nom = "";int resp6 = 0;int resp7 = 0;int resp8 = 0;
        int cas1 = 3;int cas2 = 2;int cas3 = 2;int cas4 = 2;int cas5 = 2;
-       int cou = -1;int imp = 0;
+       int cou = -1;int imp = 0;int ce;
        
        Rmiembro nueva = new Rmiembro();
        Rmotocicleta nueva1 = new Rmotocicleta();
        Rcesion nueva2 = new Rcesion();
+       
        int ban;
        
        do{
@@ -47,7 +49,8 @@ public class Pratica1 {
            + "6. Mostrar las cesiones realizadas\n"
            + "7. Incrementar otros gastos a una moto\n"
            + "8. Eliminar a un miembro\n"
-           + "9. Salir del programa\n"); 
+           + "9. Miembros con mas cesiones\n"
+           + "10. Salir del programa\n"); 
            
             
            try {
@@ -60,7 +63,7 @@ public class Pratica1 {
                    System.out.println("--------------------------------------------------------");
                    System.out.println("REGISTRE UN MIEMBRO");
                    System.out.print("Ingrese nombre del nuevo miembro: "); nom = sn.next();
-                   nueva.AgregarMiembro(nom,0);
+                   nueva.AgregarMiembro(nom,0,0);
                    break;
                    
                case 2:
@@ -336,6 +339,7 @@ public class Pratica1 {
                    int sec66 ;
                    int cost ;
                    int din;
+                   int cee;
                    String nom1;
                    String nom2;
                    String moto;
@@ -379,10 +383,12 @@ public class Pratica1 {
                    nom2 = nueva.Miembros.get(resp3-1).getNombre();
                    moto = nueva1.Motocicletas.get(resp2).getMarca();
                    din = nueva.Miembros.get(resp-1).getDinero();
+                   cee = nueva.Miembros.get(resp-1).getCesion();
                    
                    if (sec66 <= resp1){
                    nueva.Miembros.get(resp-1).setDinero(din-cost);
                    nueva1.Motocicletas.get(resp2).setId(resp3);
+                   nueva.Miembros.get(resp-1).setCesion(cee + 1);
                    nueva2.AgregarCesion(nom1, nom2, moto, cost);
                    }else{
                         nueva.Miembros.get(resp3-1).setDinero(sec66-cost);
@@ -542,6 +548,12 @@ public class Pratica1 {
                    nueva.Miembros.remove(resp6-1);
                     break;
                 case 9:
+                    Collections.sort(nueva.Miembros);
+                    for(Miembro m:nueva.Miembros){
+                        m.compareTo(m);
+                    }
+                    break;
+                case 10:
                    
                    salir=true;
                    break;
