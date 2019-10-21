@@ -1,4 +1,5 @@
 
+
 package pratica1;
 
 import java.util.InputMismatchException;
@@ -14,14 +15,36 @@ public class Pratica1 {
     public static void main(String[] args) {
         
        Scanner sn = new Scanner(System.in);
-       boolean salir = false;boolean salir2;
-       int opcion;int opcion2;int imp;int resp;int resp2;int resp3;
+       boolean salir = false;
+       boolean salir2;
+       int opcion;
+       int resp1 = 0;
+       int opcion2;
+       int imp;
+       int resp;
+       int resp2;
+       int resp3;
        String nom = "";
-       int cas1 = 3;int cas2 = 2;int cas3 = 2;int cas4 = 2;int cas5 = 2;
+       int cas1 = 3;
+       int cas2 = 2;
+       int cas3 = 2;
+       int cas4 = 2;
+       int cas5 = 2;
        int cou = -1;
        Rmiembro nueva = new Rmiembro();
        Rmotocicleta nueva1 = new Rmotocicleta();
        Rcesion nueva2 = new Rcesion();
+       int ban;
+       
+       do{
+       try {
+           ban = 0;
+       System.out.println("--------------------------------------------------------");
+       System.out.print("Ingrese importe maximo: "); resp1 = sn.nextInt();
+       }catch(Exception e){
+           
+           System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+       }while(ban != 0);
        
        while(!salir){
            
@@ -45,16 +68,7 @@ public class Pratica1 {
                    
                    System.out.println("--------------------------------------------------------");
                    System.out.println("REGISTRE UN MIEMBRO");
-                   
-                   while (nom.equals("")){
-                       System.out.print("Ingrese nombre del nuevo miembro: "); nom = sn.next();
-                      
-                       if (!nom.matches("^[A-Za-z ]*$")){
-                           nom = "";
-                       }
-                       
-                   }
-                   
+                   System.out.print("Ingrese nombre del nuevo miembro: "); nom = sn.next();
                    nueva.AgregarMiembro(nom,0);
                    break;
                    
@@ -89,7 +103,7 @@ public class Pratica1 {
                     sec = nueva.Miembros.get(resp-1).getDinero();
                     nueva.Miembros.get(resp-1).setDinero(sec+2500);
                     secc = nueva.Miembros.get(resp-1).getDinero();
-                    if (secc <= 6000){
+                    if (secc <= resp1){
                         nueva1.Motocicletas.get(cou+1).setId(resp);
                         nueva1.Motocicletas.get(cou+1).setMarca("Vespa Primavera, de 125 CC");
                         nueva1.Motocicletas.get(cou+1).setMatricula("8276JSH");
@@ -112,7 +126,7 @@ public class Pratica1 {
                     sec = nueva.Miembros.get(resp-1).getDinero();
                     nueva.Miembros.get(resp-1).setDinero(sec+2500);
                     secc = nueva.Miembros.get(resp-1).getDinero();
-                    if (secc <= 6000){
+                    if (secc <= resp1){
                     nueva1.Motocicletas.get(cou+1).setId(resp);
                     nueva1.Motocicletas.get(cou+1).setMarca("Vespa Primavera, de 125 CC");
                     nueva1.Motocicletas.get(cou+1).setMatricula("8736JSG");
@@ -144,7 +158,7 @@ public class Pratica1 {
                     sec2 = nueva.Miembros.get(resp-1).getDinero();
                     nueva.Miembros.get(resp-1).setDinero(sec2+2300);
                     sec22 = nueva.Miembros.get(resp-1).getDinero();
-                    if (sec22 <= 6000){
+                    if (sec22 <= resp1){
                     nueva1.Motocicletas.get(cou+1).setId(resp);
                     nueva1.Motocicletas.get(cou+1).setMarca("Motobenae Poney AG2, de 70 CC");
                     nueva1.Motocicletas.get(cou+1).setMatricula("6374STW");
@@ -175,7 +189,7 @@ public class Pratica1 {
                     sec3 = nueva.Miembros.get(resp-1).getDinero();
                     nueva.Miembros.get(resp-1).setDinero(sec3+3800);
                     sec33 = nueva.Miembros.get(resp-1).getDinero();
-                    if (sec33 <= 6000){
+                    if (sec33 <= resp1){
                     nueva1.Motocicletas.get(cou+1).setId(resp);
                     nueva1.Motocicletas.get(cou+1).setMarca("Bultaco de 200 CC");
                     nueva1.Motocicletas.get(cou+1).setMatricula("6273ATF");
@@ -206,7 +220,7 @@ public class Pratica1 {
                     sec4 = nueva.Miembros.get(resp-1).getDinero();
                     nueva.Miembros.get(resp-1).setDinero(sec4+1200);
                     sec44 = nueva.Miembros.get(resp-1).getDinero();
-                    if (sec44 <= 6000){
+                    if (sec44 <= resp1){
                     nueva1.Motocicletas.get(cou+1).setId(resp);
                     nueva1.Motocicletas.get(cou+1).setMarca("Guzzi Cardelino 73, de 75 CC");
                     nueva1.Motocicletas.get(cou+1).setMatricula("8736QYH");
@@ -237,7 +251,7 @@ public class Pratica1 {
                     sec5 = nueva.Miembros.get(resp-1).getDinero();
                     nueva.Miembros.get(resp-1).setDinero(sec5+4000);
                     sec55 = nueva.Miembros.get(resp-1).getDinero();
-                    if (sec55 <= 6000){
+                    if (sec55 <= resp1){
                     nueva1.Motocicletas.get(cou+1).setId(resp);
                     nueva1.Motocicletas.get(cou+1).setMarca("Ducati mini de 49 CC");
                     nueva1.Motocicletas.get(cou+1).setMatricula("9813TCS");
@@ -316,7 +330,7 @@ public class Pratica1 {
                    moto = nueva1.Motocicletas.get(resp2).getMarca();
                    din = nueva.Miembros.get(resp-1).getDinero();
                    
-                   if (sec66 <= 6000){
+                   if (sec66 <= resp1){
                    nueva.Miembros.get(resp-1).setDinero(din-cost);
                    nueva1.Motocicletas.get(resp2).setId(resp3);
                    nueva2.AgregarCesion(nom1, nom2, moto, cost);
@@ -390,5 +404,6 @@ public class Pratica1 {
             
        }
     }
+
     
 }
