@@ -14,9 +14,9 @@ public class Pratica1 {
     public static void main(String[] args) {
         
        Scanner sn = new Scanner(System.in);
-       boolean salir = false; boolean salir2;
+       boolean salir = false; boolean salir2;boolean salir3;
        int opcion;int resp1 = 0;int opcion2;int resp;int resp2;int resp3;int resp4 = 0; int resp5 = 0;
-       String nom = "";
+       String nom = "";int resp6 = 0;int resp7 = 0;int resp8 = 0;
        int cas1 = 3;int cas2 = 2;int cas3 = 2;int cas4 = 2;int cas5 = 2;
        int cou = -1;int imp = 0;
        
@@ -46,7 +46,8 @@ public class Pratica1 {
            + "5. Listar todas las motos\n"
            + "6. Mostrar las cesiones realizadas\n"
            + "7. Incrementar otros gastos a una moto\n"
-           + "8. Salir del programa\n"); 
+           + "8. Eliminar a un miembro\n"
+           + "9. Salir del programa\n"); 
            
             
            try {
@@ -332,8 +333,8 @@ public class Pratica1 {
                    break;
                 case 3:
                    int sec6;
-                   int sec66;
-                   int cost;
+                   int sec66 ;
+                   int cost ;
                    int din;
                    String nom1;
                    String nom2;
@@ -351,8 +352,7 @@ public class Pratica1 {
                        if (resp == re2){
                           
                           System.out.println("------------------------");
-                          System.out.println(i+")");
-                          System.out.println("Motocicleta: "+nueva1.Motocicletas.get(i).getMarca()+" "+"(Coste: "+nueva1.Motocicletas.get(i).getCoste()+"€)");
+                          System.out.println(i+")"+" "+"Motocicleta: "+nueva1.Motocicletas.get(i).getMarca()+" "+"(Coste: "+nueva1.Motocicletas.get(i).getCoste()+"€)");
                           
                        }
                    }
@@ -387,7 +387,6 @@ public class Pratica1 {
                    }else{
                         nueva.Miembros.get(resp3-1).setDinero(sec66-cost);
                         System.out.println("El miembro no puede tener esta motocicleta porque supera el importe maximo");
-                        cas5 = cas5 + 1;
                         break;
                     }
                    
@@ -477,6 +476,72 @@ public class Pratica1 {
                           nueva1.Motocicletas.get(resp4).setImp(im + resp5);
                 break;
                 case 8:
+                    int sec77 = 0 ;
+                    int cost1 = 0 ;
+                    salir3 = false;
+                    int mi8 = nueva.Miembros.size();
+                    int mi9 = nueva1.Motocicletas.size();
+                    int nu = 0;
+                    System.out.println("--------------------------------------------------------");
+                    System.out.println("SELECCIONE UN MIEMBRO A ELIMINAR:");
+                    nueva.VisualizarMiembro();
+                    System.out.println("------------------------");
+                    
+                    do{
+                          try {
+                     ban = 0;
+                          System.out.print("Ingrese un ID : "); resp6 = sn.nextInt();
+                     
+                    }catch(Exception e){
+           
+                          System.out.println("¡Ingrese los datos correctamente, por favor!"); ban = 1; sn.nextLine();}
+                    }while(ban != 0);
+                    
+                    while(!salir3){
+                    for(int i=0;i< mi9 ;i++) {
+                       int re2 = nueva1.Motocicletas.get(i).getId();       
+                       if (resp6 == re2){
+                          
+                          System.out.println("------------------------");
+                          System.out.println("SELECCIONE LA MOTOCICLETA:");
+                          System.out.println(i+")"+" "+"Motocicleta: "+nueva1.Motocicletas.get(i).getMarca()+" "+"(Coste: "+nueva1.Motocicletas.get(i).getCoste()+"€)");
+                          
+                   System.out.println("------------------------");
+                   System.out.print("Ingrese el número de la motocicleta: "); resp7 = sn.nextInt();
+                   System.out.println("SELECCIONE EL MIEMBRO QUE RECIBIRA LA MOTOCICLETA:");
+                   for(int x = 0; x<mi8; x++){
+                   int re3 = nueva.Miembros.get(x).getId();
+                   if (resp6 != re3){
+                   System.out.println("------------------------");
+                   System.out.println("ID: "+nueva.Miembros.get(x).getId());
+                   System.out.println("Nombre: "+nueva.Miembros.get(x).getNombre());
+                   System.out.println("Dinero: "+nueva.Miembros.get(x).getDinero());
+                   }
+                }
+                   System.out.println("------------------------");
+                   System.out.print("Ingrese el ID del miembro: "); resp8 = sn.nextInt();
+                   
+                    sec6 = nueva.Miembros.get(resp8-1).getDinero();
+                    cost1 = nueva1.Motocicletas.get(resp7).getCoste();
+                    nueva.Miembros.get(resp8-1).setDinero(sec6+cost1);
+                    sec77 = nueva.Miembros.get(resp8-1).getDinero();
+                    
+                    if (sec77 <= resp1){
+                    nueva1.Motocicletas.get(resp7).setId(resp8);
+                   }else{
+                        nueva.Miembros.get(resp8-1).setDinero(sec77-cost1);
+                        System.out.println("El miembro no puede tener esta motocicleta porque supera el importe maximo");
+                    } 
+                    
+                    }else{
+                           System.out.println("¡Los cambios fueron realizados y se elimino el miembro correctamente!");
+                           salir3 = true;
+                       }
+                    }
+                   }
+                   nueva.Miembros.remove(resp6-1);
+                    break;
+                case 9:
                    
                    salir=true;
                    break;
